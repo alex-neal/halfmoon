@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var monk = require('monk');
-var db = monk('localhost:27017/halfmoon');
+var db = monk(process.env.MONGODB_URI || 'localhost:27017/halfmoon');
 
 // multer package for image file uploads
 var multer = require('multer');
