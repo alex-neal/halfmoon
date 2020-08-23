@@ -1,0 +1,47 @@
+<%- include ('partials/header') %>
+
+<div class="container-sm p-4 bg-white">
+	<h2>Order Details</h2>
+	<br>
+	<table class="table">
+
+		<tr>
+			<th scope="col">Order ID</th>
+			<td><%= order._id %></td>
+		</tr>
+		<tr>
+			<th scope="col">Date</th>
+			<td><%= order.date%></td>
+		</tr>
+		<tr>
+			<th scope="col">Status</th>
+			<td><%= order.status%></td>
+		</tr>
+		<tr>
+			<th scope="col">Total</th>
+			<td>$<%= order.total.toFixed(2)%></td>
+		</tr>
+		<tr>
+			<th>Shipping Address</th>
+			<td><%= order.shippingAddress.address1 %> <%= order.shippingAddress.address2 %><br>
+				<%= order.shippingAddress.city%>, <%= order.shippingAddress.state%> <%= order.shippingAddress.zip%>
+			</td>
+		</tr>
+		<tr>
+			<th>Items</th>
+			<td>
+				<% products.forEach(function(item){%>
+				<%= item.name%><br>
+				<img src="/images/products/<%=item.image%>" alt="Product Image" class="product-sm-left">
+				<br>
+				<%});%>
+			</td>
+		</tr>
+
+	</table>
+
+</div>
+
+<%- include ('partials/footer') %>
+
+<%- include ('partials/endtags') %>

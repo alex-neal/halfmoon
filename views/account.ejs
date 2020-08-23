@@ -1,0 +1,29 @@
+<%- include ('partials/header') %>
+
+
+<div class="pt-4">
+    <div class="container-sm bg-white">
+    	<div class="row">
+    		<div class="col-sm-6 text-center mt-4">
+    			<br><br>
+                <h2 class="font-italic font-weight-bolder">Hello, <%= user.firstname%></h2>
+                <p>Name: <%= user.firstname%> <%= user.lastname%></p>
+                <p>Email: <%= user.email%></p>
+                <p><a href="/orders">View order history</a></p>
+                <p><a class="btn btn-warning" href="/account/logout">Logout</a></p>
+                <p>
+                  <form action="/account?_method=DELETE" method="POST">
+                     <button type="submit" class="btn btn-danger">Delete Account</button>
+                  </form>
+
+                </p>
+            </div>
+            <div class="col-sm-6">
+               <img src="/images/halfmoon_logo.jpg" alt="Halfmoon Logo" class="product-full p-4">
+           </div>
+       </div>
+   </div>
+</div>
+<%- include ('partials/footer') %>
+
+<%- include ('partials/endtags') %>

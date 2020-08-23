@@ -1,0 +1,58 @@
+<%- include ('partials/header') %>
+
+<div class="pt-4">
+<div class="container-sm bg-white">
+  <div class="row">
+    <div class="col-md-8 p-2">
+      <img src="/images/products/<%= product.image %>" alt="Product Image" class="product-full p-4">
+
+    </div>
+
+
+      <div class="col-md-4 p-4">
+        <h2><%= product.name %></h2>
+        <p>Item #<%= product._id %></p>
+        <p class="price">$<%= product.price.toFixed(2) %></p>
+        <form method="POST" action="/cart">
+
+          <label for="qty-select">Quantity</label>
+          <select class="form-control qty-select" id="qty-select" name="quantity">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select><br>
+          <input type="hidden" value="<%= product._id %>" name="productId">
+
+          <button type="submit" class="btn btn-outline-primary">Add to Cart</button>
+
+        </form>
+
+        <% if (admin) {%>
+          <hr>
+          <h4>Admin:</h4>
+          In Stock: <%= product.qty_in_stock%><br><br>
+          <form class="form-inline" action="/products/<%= product._id %>?_method=DELETE" method="POST">
+            <a class="btn btn-warning mr-4" href="/products/<%= product._id %>/edit" role="button">Edit</a>
+          <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        
+        <%}%>
+      </div>
+
+
+    <div class="row p-4">
+      <%= product.description%>
+    </div>
+  </div>
+</div>
+</div>
+<%- include ('partials/footer') %>
+
+<%- include ('partials/endtags') %>

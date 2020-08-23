@@ -1,0 +1,34 @@
+<%- include ('partials/header') %>
+<div class="container-sm bg-white pt-4">
+<h1> New Product </h1>
+<br>
+
+<form action="/products" method="POST" enctype="multipart/form-data">
+
+<div class="form-group">
+	<input type="text" name="name" class="form-control" placeholder="Product Name" required>
+</div>
+<div class="form-group">
+	<input type="text" name="category" class="form-control" placeholder="Category" required>
+</div>
+ <div class="form-group">
+	<input type="text" name="price" class="form-control" placeholder="Price" required>
+</div>
+<div class="form-group">
+	<input type="number" name="quantity" class="form-control" placeholder="Quantity in stock" required>
+</div>
+ <div class="form-group">
+	<textarea name="desc" class="form-control" placeholder="description" required></textarea>
+</div>
+<div class="form-group">
+	<label for="file-input">Image File:</label>
+	<input type="file" id="file-input" name="image" class="form-control-file" required>
+</div>
+<button type="submit" class="btn btn-info mr-4" >Save</button><a href="/products">Cancel</a>
+
+</form>
+
+</div>
+
+<%- include ('partials/footer') %>
+<%- include ('partials/endtags') %>

@@ -1,0 +1,83 @@
+<%- include ('partials/header') %>
+  <div class="pt-4">
+    <div class="container-md bg-white">
+      <div class="row">
+        <div class="col-md-2 py-4 pl-2">
+          <h2>Filter</h2>
+          <h5>Category</h5>
+          <div class="form-check">
+            <input class="form-check-input cat-check" type="checkbox" value="Tents" id="tent-check">
+            <label class="form-check-label" for="tent-check">
+              Tents
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input cat-check" type="checkbox" value="Sleeping Bags" id="bag-check">
+            <label class="form-check-label" for="bag-check">
+              Sleeping Bags
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input cat-check" type="checkbox" value="Sleeping Pads" id="pad-check">
+            <label class="form-check-label" for="pad-check">
+              Sleeping Pads
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input cat-check" type="checkbox" value="Backpacks" id="pack-check">
+            <label class="form-check-label" for="pack-check">
+              Backpacks
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input cat-check" type="checkbox" value="Clothing" id="cloth-check">
+            <label class="form-check-label" for="cloth-check">
+              Clothing
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input cat-check" type="checkbox" value="Accessories" id="acc-check">
+            <label class="form-check-label" for="acc-check">
+              Accessories
+            </label>
+          </div>
+          <hr>
+          <% if (admin) {%>
+            <h5>Admin:</h5>
+            <form method="GET" action="/products/new">
+              <button class="btn btn-outline-danger">New Product</button>
+             </form>
+
+
+          <%}%>
+        </div>
+
+        <div class="col-md-10 pt-4 text-center">
+          <div class="container">
+            <div class="row" id="productdisplay">
+
+            </div>
+            <hr>
+            <div class="float-right" id="page-nav">
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ('partials/footer') %>
+<script>
+  $('#gear-link').addClass('active');
+  var url = "api/products";
+  <% if (search){%>
+    url += "?search=<%=search%>";
+    $('#product-search').val("<%= search%>");   
+  <%}%> 
+  displayProducts(url);
+</script>
+<%- include ('partials/endtags') %>
