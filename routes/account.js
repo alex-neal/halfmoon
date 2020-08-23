@@ -6,6 +6,8 @@ var db = monk(process.env.MONGODB_URI || 'localhost:27017/halfmoon');
 
 var bcrypt = require('bcrypt');	// for password salting/hashing
 
+
+
 // Path to user account page (or redirect to login if no user logged in)
 router.get('/', function(req, res) {
   if (req.session.userId) {
