@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var monk = require('monk');
-var db = monk(process.env.MONGODB_URI || 'localhost:27017/halfmoon');
+var db = monk('mongodb+srv://app:MDBbeau14@halfmoon.ga0nv.mongodb.net/halfmoon?retryWrites=true&w=majority');
 
 
 // Get a JSON product array (accepts search/category parameters)
