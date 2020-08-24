@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -59,5 +64,6 @@ app.use(function(err, req, res, next) {
 
 const port = process.env.PORT || 3000;
 app.listen(port);
+
 
 module.exports = app;

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var monk = require('monk');
-var db = monk('mongodb+srv://app:MDBbeau14@halfmoon.ga0nv.mongodb.net/halfmoon?retryWrites=true&w=majority');
+var db = monk(process.env.MONGO_CONN_STRING);
 
 const TAX_RATE = 0.08;
 
