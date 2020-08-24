@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"halfmoon.users"}],"uuid":"b84f3d6098014ef187c5dad1b841233e"}
