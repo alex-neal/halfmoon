@@ -10,6 +10,8 @@ A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/.
 
 ![homepage](https://user-images.githubusercontent.com/20820910/91080486-42533700-e60b-11ea-9f78-9f7e97632228.png)
 
+<br>
+
 ### Product Gallery
 
 ![product_gallery](https://user-images.githubusercontent.com/20820910/91080132-afb29800-e60a-11ea-817b-d162244af536.png)
@@ -18,6 +20,7 @@ A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/.
 * ***Integrated search and filter*** – Users can search for specific keywords with the search bar at the top of the page, which is accessible site-wide. In the product gallery, users can click checkboxes to filter products by category. The check boxes and the search bar are integrated. For example, a user may view all backpacks by clicking the “backpack” checkbox, and then search for the keyword “ultralight” to view all of Half Moon’s ultralight backpacks. Search and filter results are efficiently delivered to the client via AJAX calls.
 * ***Administrative Control*** – If an administrative user is signed in, a button appears in the left panel for adding a new product to the database.
 
+<br>
 
 ### Product View
 
@@ -28,6 +31,7 @@ A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/.
 * ***Administrative Controls*** - The above screenshot also shows additional buttons for administrators to edit product details or “soft-delete” the product. These buttons are not visible for normal users.
 
 
+<br>
 
 ### Shopping Cart
 
@@ -38,6 +42,8 @@ A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/.
 * ***Subtotal*** – Users can view the current calculated subtotal for their cart.
 * Users may continue shopping or proceed to checkout by clicking the checkout button.
 
+<br>
+
 ### Checkout
 
 ![checkout](https://user-images.githubusercontent.com/20820910/91080686-96f6b200-e60b-11ea-9e9e-73cc2ca0d74f.png)
@@ -47,6 +53,8 @@ A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/.
 * ***Shipping*** – Free for all orders.
 * ***Placing an Order*** – After entering a shipping address, the user can click the “Place Order” button to complete the order. At that point, the order is added to the database and the user’s shopping cart is reset.
 * ***View Past Orders*** – The application also allows users to view the specific details of their order history.
+
+<br>
 
 ## TO-DO
 Future updates could include:
@@ -69,15 +77,21 @@ Products are identified by a unique ‘_id’ field. Each field contains informa
 
 ![products](https://user-images.githubusercontent.com/20820910/91082778-c78c1b00-e60e-11ea-9297-982b495a1ce5.png)
 
+<br>
+
 ### Users 
 Users are identified by a unique ‘_id’ field as well as a unique ‘email’ field. The salted and hashed password is stored in the ‘password’ field. Since shopping carts and users have a simple one-to-one relationship, the cart can be well-represented as an embedded document in the user collection. This document is an array of objects, each including a ‘productId’ field (which is a foreign key to the corresponding product in the Product collection) and a ‘quantity’ field.
 
 ![users](https://user-images.githubusercontent.com/20820910/91082808-d4a90a00-e60e-11ea-9af4-18508df94652.png)
 
+<br>
+
 ### Orders 
 Orders are identified by a unique ‘_id’ field. They also include a ‘userId’ field, which is a foreign key representing the unique ID of the user that placed the order. This collection also includes an embedded document ‘items’, which has the same structure as the ‘cart’ field in the User collection. When an order is placed, order.items is assigned the value of user.cart, and then user.cart is reset to an empty array. 
 
 ![orders](https://user-images.githubusercontent.com/20820910/91082834-e25e8f80-e60e-11ea-9b6c-977ba7829b98.png)
+
+<br>
 
 ## Languages, Frameworks, Packages 
 
