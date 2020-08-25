@@ -1,9 +1,9 @@
 # halfmoon
 
 
-I built this e-commerce application for a fictional outdoor gear company in order to refine my full-stack web devolopment skills using Node.js / Express. 
+I built this e-commerce application for a fictional outdoor gear company in order to refine my full-stack web devolopment skills. 
 
-A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/. Feel free to explore the app, create an account, and place a (fake) order! (Recommened browsers are Chrome and Safari)
+A demo of the application is deployed at https://halfmoondesigns.herokuapp.com/. Feel free to explore the app, create an account, and place a (fake) order! Recommened browsers are Chrome and Safari.
 
 
 ### Home Page
