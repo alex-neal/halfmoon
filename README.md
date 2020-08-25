@@ -73,21 +73,21 @@ Future updates could include:
 The application connects to a MongoDB database. For the data model, necessary entities are organized into three separate collections: Products, Users, and Orders.
 
 ### Products 
-Products are identified by a unique ‘_id’ field. Each field contains information specific to the product; there are no foreign keys. The ‘deleted’ field implements a soft-delete feature (products where ‘deleted’ = true are not delivered to the client during product browsing). In order to keep the data model simple, we assume that there are no selectable options (e.g. size, color) for any product.
+Products are identified by a unique `_id` field. Each field contains information specific to the product; there are no foreign keys. The `deleted` field implements a soft-delete feature (products where `deleted = true` are not delivered to the client during product browsing). In order to keep the data model simple, we assume that there are no selectable options (e.g. size, color) for any product.
 
 ![products](https://user-images.githubusercontent.com/20820910/91082778-c78c1b00-e60e-11ea-9297-982b495a1ce5.png)
 
 <br>
 
 ### Users 
-Users are identified by a unique ‘_id’ field as well as a unique ‘email’ field. The salted and hashed password is stored in the ‘password’ field. Since shopping carts and users have a simple one-to-one relationship, the cart can be well-represented as an embedded document in the user collection. This document is an array of objects, each including a ‘productId’ field (which is a foreign key to the corresponding product in the Product collection) and a ‘quantity’ field.
+Users are identified by a unique `_id` field as well as a unique `email` field. The salted and hashed password is stored in the `password` field. Since shopping carts and users have a simple one-to-one relationship, the cart can be well-represented as an embedded document in the user collection. This document is an array of objects, each including a `productId` field (which is a foreign key to the corresponding product in the Product collection) and a `quantity` field.
 
 ![users](https://user-images.githubusercontent.com/20820910/91082808-d4a90a00-e60e-11ea-9af4-18508df94652.png)
 
 <br>
 
 ### Orders 
-Orders are identified by a unique ‘_id’ field. They also include a ‘userId’ field, which is a foreign key representing the unique ID of the user that placed the order. This collection also includes an embedded document ‘items’, which has the same structure as the ‘cart’ field in the User collection. When an order is placed, order.items is assigned the value of user.cart, and then user.cart is reset to an empty array. 
+Orders are identified by a unique `_id` field. They also include a `userId` field, which is a foreign key representing the unique ID of the user that placed the order. This collection also includes an embedded document `items`, which has the same structure as the `cart` field in the User collection. When an order is placed, `order.items` is assigned the value of `user.cart`, and then user.cart is reset to an empty array. 
 
 ![orders](https://user-images.githubusercontent.com/20820910/91082834-e25e8f80-e60e-11ea-9b6c-977ba7829b98.png)
 
@@ -97,12 +97,14 @@ Orders are identified by a unique ‘_id’ field. They also include a ‘userId
 
 The front-end development languages are HTML, CSS, and JavaScript. Additional front-end technologies include:
 
-* Bootstrap CSS framework v Font Awesome icons
+* Bootstrap CSS framework 
+* Font Awesome icons
 * JQuery JavaScript library
 
 The back-end development language is JavaScript via the Node.js runtime environment. The framework used is Express, and the template engine is EJS. Several Node packages are used, including:
 * *Monk* – for MongoDB interface
-* *Bcrypt* – for salting and hashing passwords prior to database storage v Multer – for image file upload
+* *Bcrypt* – for salting and hashing passwords prior to database storage 
+* *Multer* – for image file upload
 * *Session* – for maintaining user session data
 * *Method-Override* – to allow the delete and put HTTP request methods.
 * *DotEnv* - For setting environment variables
