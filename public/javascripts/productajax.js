@@ -5,23 +5,20 @@ window.onload = function() {
 
 	$("#product-search-btn").click(function() {
 		var page = window.location.href.split('/').pop()
-		var re = /products/g;
+		var re = /products$/;
 		if (!re.test(page)) {
-			window.location.href = "products?search=" + $('#product-search').val();
+			window.location.href = "/products?search=" + $('#product-search').val();
 		} else {
 			displayProducts(buildURL());
 		}
 	})
 
-	document.getElementById('product-search').onsearch = function() {
-		var page = window.location.href.split('/').pop()
-		var re = /products/g;
-		if (!re.test(page)) {
-			window.location.href = "products?search=" + $('#product-search').val();
-		} else {
-			displayProducts(buildURL());
+	$("#product-search").keypress(function(e) {
+		var key = e.which;
+		if (key==13) {
+			$("#product-search-btn").click()
 		}
-	}
+	})
 
 }
 
@@ -32,6 +29,7 @@ function displayProducts(url) {
 	$.getJSON(url, function(data) {
 		if (data.length == 0) {
 			$('#productdisplay').html("No results.");
+			$('#page-nav').html('');
 		} else {
 			var pageHTML = "";
 			var pages = []	// Hold html for each page
