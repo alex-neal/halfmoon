@@ -55,7 +55,7 @@ function displayProducts(url) {
 			// Implement pagination if there are multiple pages needed
 			if (pages.length > 1) {
 				var pageNavHTML = '<nav aria-label="Pagination">';
-				pageNavHTML += '<ul class="pagination">';
+				pageNavHTML += '<ul class="pagination mt-5">';
 				pageNavHTML += '<li class="page-item"><button class="page-link" id="previous">Previous</button></li>'
 				for (i=0; i<pages.length; i++) {
 					pageNavHTML += '<li class="page-item"><button class="page-link" id="page' + i + '">'+(i+1)+'</button></li>';
